@@ -47,14 +47,32 @@ nodes:
   extraMounts:
     - hostPath: /tmp
       containerPath: /data
+  labels:
+    app: mysql
 - role: worker
   extraMounts:
     - hostPath: /tmp
       containerPath: /data
+  labels:
+    app: mysql
 - role: worker
   extraMounts:
     - hostPath: /tmp
       containerPath: /data
+  labels:
+    app: kube2py
+- role: worker
+  extraMounts:
+    - hostPath: /tmp
+      containerPath: /data
+  labels:
+    app: kube2py
+- role: worker
+  extraMounts:
+    - hostPath: /tmp
+      containerPath: /data
+  labels:
+    app: kube2py
 - role: worker
   extraMounts:
     - hostPath: /tmp
