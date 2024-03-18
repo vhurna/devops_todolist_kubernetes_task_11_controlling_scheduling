@@ -34,12 +34,14 @@ Create a kubernetes manifest for a pod which will containa ToDo app container:
 1. Fork this repository.
 1. Use `kind` to spin up a cluster from a `cluster.yml` configuration file.
 1. Inspect Nodes for Labels and Taints
+1. Taint nodes labeled with `app=mysql` with `app=mysql:NoSchedule`
 1. StateFulSet requirements:
     1. Modify StatefulSet so it can be scheduled on the tainted worder nodes
     1. Add Pod Anti-Affinity rule so mysql could not be scheduled on the same node
-    1. Add Node Anti-Affinity rule so mysql could not be shceduled on nodes labeled with `app=kube2py`
+    1. Add Node Affinity rule so mysql scheduled on a node with `app=mysql` label
 1. Deployment requirements:
-    1. Add Node Affinity Rules to schedule deployment on a `app=kube2py` labeled nodes
+    1. Add Node Affinity Rules to schedule deployment on a `app=kube2py` labeled nodes (Use `PreferedDuringSchedulingIgnoredDuringExecution`)
+    1. Add Pod Anti-Affinity rule so deployment could not be scheduled on the same node
 1. `bootstrap.sh` should containe all the commands to deploy all the required resources in the cluster
 1. `README.md` should have instructuions on how to validate the changes
 1. Create PR with your changes and attach it for validation on a platform.
